@@ -8,4 +8,6 @@
     <string name="sml">Small</string>
     <string name="med">Medium</string>
     <string name="lrg">Large</string>
+    <string name="dotted">DOTTED LINE</string>
+    <string name="blur">BLURRED LINE</string>
 </resources>

@@ -2,10 +2,14 @@ package com.zersey.canvas;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.CornerPathEffect;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PathEffect;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.text.Layout;
@@ -105,7 +109,8 @@ public class CanvasView extends View {
         brush.setColor(paintColor);
     }
     public void setBrushSize(float newSize){
-        invalidate();
+       brush.setPathEffect(new CornerPathEffect(newSize));
+       brush.setMaskFilter(null);
        brush.setStrokeWidth(newSize);
     }
     public void setErase(boolean isErase){
@@ -116,6 +121,15 @@ public class CanvasView extends View {
             brush.setXfermode(null);
         }
     }
+    public void setDotMode(){
+        brush.setMaskFilter(null);
+        brush.setPathEffect(new DashPathEffect(new float[] { 8, 8 }, 0));
+    }
+
+    public void setBlurMode(){
+        brush.setMaskFilter(new BlurMaskFilter(8, BlurMaskFilter.Blur.NORMAL));
+    }
+
 
     private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
         @Override
@@ -128,57 +142,3 @@ public class CanvasView extends View {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//   LayoutParams params;
-//   Context context;
-//    private Path path = new Path();
-//    private Paint brush = new Paint();
-//    public CanvasView(Context context) {
-//        super(context);
-//        this.context = context;
-//        brush.setAntiAlias(true);
-//        brush.setColor(Color.BLACK);
-//        brush.setStyle(Paint.Style.STROKE);
-//        brush.setStrokeJoin(Paint.Join.ROUND);
-//        brush.setStrokeWidth(4f);
-//
-//        params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-//    }
-//
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//        float pointX = event.getX();
-//       float pointY = event.getY();
-//
-//       switch (event.getAction()){
-//           case MotionEvent.ACTION_DOWN :
-//               path.moveTo(pointX,pointY);
-//               return true;
-//           case MotionEvent.ACTION_MOVE:
-//               path.lineTo(pointX,pointY);
-//               break;
-//           default:
-//               return false;
-//       }
-//       //calls the onDraw method
-//       postInvalidate();
-//       return false;
-//    }
-//
-//    @Override
-//    protected void onDraw(Canvas canvas){
-//        canvas.drawPath(path,brush);
-//    }

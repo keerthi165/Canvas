@@ -29,6 +29,26 @@
            android:layout_width="wrap_content"
            android:layout_height="match_parent"
            android:src="@drawable/eraser"/>
+       <Button
+           android:id="@+id/dot"
+           android:background="#FFFFFF"
+           android:padding="5dp"
+           android:layout_gravity="end"
+           android:layout_marginLeft="10dp"
+           android:text = "@string/dotted"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+          />
+       <Button
+           android:id="@+id/blur"
+           android:background="#FFFFFF"
+           android:padding="5dp"
+           android:layout_gravity="end"
+           android:layout_marginLeft="10dp"
+           android:text = "@string/blur"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent"
+           />
    </LinearLayout>
     <com.zersey.canvas.CanvasView
         android:id="@+id/canvas"

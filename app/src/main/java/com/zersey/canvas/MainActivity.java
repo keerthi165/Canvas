@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         current_brush.setOnClickListener(this);
         ImageButton erase_btn = findViewById(R.id.erase_btn);
         erase_btn.setOnClickListener(this);
+        Button dot = findViewById(R.id.dot);
+        dot.setOnClickListener(this);
+        Button blur = findViewById(R.id.blur);
+        blur.setOnClickListener(this);
     }
 
 
@@ -110,6 +114,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                      }
                  });
                  canvasView.setErase(true);
+             }
+             else if(v.getId()==R.id.dot){
+                 canvasView.setDotMode();
+             }
+             else if(v.getId()==R.id.blur){
+                 canvasView.setBlurMode();
              }
     }
 
