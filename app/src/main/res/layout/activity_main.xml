@@ -17,6 +17,7 @@
        <ImageButton
            android:id="@+id/brush_btn"
            android:background="#FFFFFF"
+           android:foreground="?android:attr/selectableItemBackground"
            android:layout_marginRight="10dp"
            android:padding="5dp"
            android:layout_width="wrap_content"
@@ -26,6 +27,7 @@
            android:id="@+id/erase_btn"
            android:background="#FFFFFF"
            android:padding="5dp"
+           android:foreground="?android:attr/selectableItemBackground"
            android:layout_width="wrap_content"
            android:layout_height="match_parent"
            android:src="@drawable/eraser"/>
@@ -33,6 +35,7 @@
            android:id="@+id/dot"
            android:background="#FFFFFF"
            android:padding="5dp"
+           android:foreground="?android:attr/selectableItemBackground"
            android:layout_gravity="end"
            android:layout_marginLeft="10dp"
            android:text = "@string/dotted"
@@ -41,6 +44,7 @@
           />
        <Button
            android:id="@+id/blur"
+           android:foreground="?android:attr/selectableItemBackground"
            android:background="#FFFFFF"
            android:padding="5dp"
            android:layout_gravity="end"
